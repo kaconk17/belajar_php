@@ -30,27 +30,31 @@ $conn = sqlsrv_connect ($serverName , $connectionInfo);
 
 <?php
 //$i=0;
-$query = "SELECT item_code, item, spesifikasi, qty, uom, class FROM tb_out";
+$query = "SELECT item_code, item, spesifikasi, qty, uom, class FROM tb_out WHERE remark IS NULL";
 
 $hasil = sqlsrv_query ($conn, $query);
-if($hasil){
-    echo "berhasil";
-}
-else{
-    echo "gagal";
-}
+//if($hasil){
+   // echo "berhasil";
+//}
+//else{
+   // echo "gagal";
+//}
 while ($data = sqlsrv_fetch_array($hasil)){
+   //foreach ($hasil->result() as $row) {
+       # code...
+   
    // $i++;
     echo "
     <tr>
    
     <td>".$data['item_code']."</td>
-    <td>".$data ['item']."</td>
+    <td>".$rdata ['item']."</td>
     <td>".$data['spesifikasi']."</td>
     <td>".$data['qty']."</td>
     <td>".$data ['uom']."</td>
 <td>".$data['class']."</td>
     </tr>
     ";
+    //sqlsrv_close();
 }
 ?>
