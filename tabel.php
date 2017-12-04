@@ -48,7 +48,7 @@ while ($data = sqlsrv_fetch_array($hasil)){
     <tr>
    
     <td>".$data['item_code']."</td>
-    <td>".$rdata ['item']."</td>
+    <td>".$data ['item']."</td>
     <td>".$data['spesifikasi']."</td>
     <td>".$data['qty']."</td>
     <td>".$data ['uom']."</td>
