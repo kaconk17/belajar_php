@@ -17,7 +17,20 @@ $conn = sqlsrv_connect ($serverName , $connectionInfo);
 <font name="Arial" size="3" color="red">DATA TRANSAKSI</font>
 <br>
 <br>
-
+<div>
+    <h1></h1>
+    <form>
+        <label>Departemen</label>
+        <select>
+            <option value="foundry">Foundry</option>
+            <option value="machining">Machining</option>
+            <option value="grinding">Grinding</option>
+            <option value="technical">Technical</option>
+            <option value="kensa">Kensha</option>
+        </select>
+        <input type="submit" value= "Search">
+    </form>
+</div>
 <table border ='1' width = '800'>
 <tr>
 <th>Item Code</th>
@@ -48,7 +61,7 @@ while ($data = sqlsrv_fetch_array($hasil)){
     <tr>
    
     <td>".$data['item_code']."</td>
-    <td>".$rdata ['item']."</td>
+    <td>".$data ['item']."</td>
     <td>".$data['spesifikasi']."</td>
     <td>".$data['qty']."</td>
     <td>".$data ['uom']."</td>

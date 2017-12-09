@@ -1,9 +1,54 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title> Belajar html</title>
+        <link rel="stylesheet" type = "text/css" href="style.css">
     </head>
     <body>
-        <h1> Pelajaran Pertama </h1>
+        <div class="judul">
+                <h1> Pelajaran Pertama </h1>
+                <form>
+                    <label for="nama_txt">Nama User</label>
+                    <input type="text" placeholder="Isi nama" id="nama_txt">
+                    <br>
+                    <label for="alamat_txt">Alamat</label>
+                    <textarea cols="30" rows="10" id="alamat_txt"></textarea>
+                    <br>
+                    <br>
+                    <label> makanan </label> <br>
+                    <input type="checkbox" name="chk_makan" value="1">Nasi <br>
+                    <input type="checkbox" name="chk_makan" value="1">Sayur <br>
+                    <input type="checkbox" name="chk_makan" value="1">ikan <br>
+                    <label>jenis kelamin</label> <br>
+                    <input type="radio" name="gender" value="0"> Laki-Laki <br>
+                    <input type="radio" name="gender" value="1"> Perempuan <br>
+                    <br>
+                    <label>Hewan</label>
+                    <select>
+                        <optgroup label="reptil">
+                        <option value="kadal">Kadal</option>
+                        <option value="cecek">Cicak</option>
+                        
+                        </optgroup>
+
+                        <optgroup label="Mamalia">
+                                <option value="kucing">Kucing</option>
+                                <option value="sapi">Sapi</option>
+                                <option value="kambing">Kambing</option>
+                        </optgroup>
+                    </select>
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
+
+        </div>
+        <br>
+        <img src="olaf.jpg" alt="gambar olaf" height="300" width="400">
+       <br>
+       <ul>
+           <li>kucing</li>
+           <li>angora</li>
+       </ul>
         <p>
            <i>mempelajari tag html</i> </p>
            <a href="https://facebook.com">link fb</a>
