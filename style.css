@@ -1,0 +1,14 @@
+h1 {
+    color: blue;
+    font-size: 50px;
+}
+#list {
+    background-color: orange;
+}
+body {
+    /*background-color: #6cf77e;*/
+    background-image: url("keepcalm.jpg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-attachment: fixed;
+}
