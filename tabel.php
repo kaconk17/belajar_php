@@ -1,9 +1,4 @@
-<?php
-$serverName = "KACONK-LAPTOP\SQLEXPRESS";
-$connectionInfo = array("Database"=> "pass" , "UID" => "sa", "PWD"=> "NPMI" );
-$conn = sqlsrv_connect ($serverName , $connectionInfo);
 
-?>
 <html>
 <head>
 <title>Tabel Out</title>
@@ -28,10 +23,10 @@ $conn = sqlsrv_connect ($serverName , $connectionInfo);
             <option value="technical">Technical</option>
             <option value="kensa">Kensha</option>
         </select>
-        <input type="submit" value= "Search">
+        
+        
     </form>
-</div>
-<table border ='1' width = '800'>
+    <table border ='1' width = '800'>
 <tr>
 <th>Item Code</th>
 <th>Item</th>
@@ -41,22 +36,34 @@ $conn = sqlsrv_connect ($serverName , $connectionInfo);
 <th>Class</th>
 </tr>
 
-<?php
-//$i=0;
-$query = "SELECT item_code, item, spesifikasi, qty, uom, class FROM tb_out WHERE remark IS NULL";
+<form action="tabel.php" method="post">
+        <input type="text" id="cari">
+        <input type="submit" name="btn" value= "Search">
+        
+</form>
 
-$hasil = sqlsrv_query ($conn, $query);
-//if($hasil){
-   // echo "berhasil";
-//}
-//else{
-   // echo "gagal";
-//}
-while ($data = sqlsrv_fetch_array($hasil)){
-   //foreach ($hasil->result() as $row) {
-       # code...
-   
-   // $i++;
+<?php
+ $serverName = "KACONK-LAPTOP\SQLEXPRESS";
+ $connectionInfo = array("Database"=> "pass" , "UID" => "sa", "PWD"=> "NPMI" );
+ $conn = sqlsrv_connect ($serverName , $connectionInfo);
+
+if (isset($_POST['btn'])) {
+    $nilai = $_POST['cari'];
+    echo $nilai;
+    $query = "SELECT item_code, item, spesifikasi, qty, uom, class FROM tb_out WHERE remark IS NULL AND item_code LIKE '%".$nilai."%'";
+    $result= sqlsrv_query ($conn, $query);
+} else {
+    $query = "SELECT item_code, item, spesifikasi, qty, uom, class FROM tb_out WHERE remark IS NULL";
+    $result= sqlsrv_query ($conn, $query);
+}
+
+
+
+
+
+
+while ($data = sqlsrv_fetch_array($result)){
+  
     echo "
     <tr>
    
@@ -70,4 +77,9 @@ while ($data = sqlsrv_fetch_array($hasil)){
     ";
     //sqlsrv_close();
 }
+
 ?>
+<script src = "jquery.js"></script>
+   
+</div>
+
